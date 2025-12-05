@@ -236,7 +236,7 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isOpen, onClose }) => {
                               Мы сохраняем версии вашего текста, чтобы вы не боялись экспериментировать.
                           </p>
                           <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                              <li><strong>Автосохранение:</strong> Каждые 3 минуты или при изменении текста >5%.</li>
+                              <li><strong>Автосохранение:</strong> Каждые 3 минуты или при изменении текста &gt;5%.</li>
                               <li><strong>Ручное сохранение:</strong> Кнопка в окне истории или <code>Ctrl+S</code>.</li>
                           </ul>
                       </div>
