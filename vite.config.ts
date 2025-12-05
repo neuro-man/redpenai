@@ -1,23 +1,16 @@
-import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default defineConfig(({ mode }) => {
-    const env = loadEnv(mode, '.', '');
-    return {
-      server: {
-        port: 3000,
-        host: '0.0.0.0',
-      },
-      plugins: [react()],
-      define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-      },
-      resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '.'),
-        }
-      }
-    };
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  // IMPORTANT: If deploying to https://username.github.io/repo-name/, 
+  // change the base line below to: base: '/repo-name/',
+  // If deploying to Vercel/Netlify, leave as '/'
+  base: '/', 
+  define: {
+    // This allows using process.env.API_KEY in the browser for the demo
+    // In a real production app, you should use a backend proxy.
+    'process.env': process.env
+  }
 });
